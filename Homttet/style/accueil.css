@@ -1,0 +1,229 @@
+/* Je cache ce qui dépasse du champ de vision, cela retire la scroll bar. */
+body{
+    overflow: hidden;
+}
+
+/*
+Je cache les titres des différentes sections afin d'avoir un code html conforme aux normes
+W3C mais qui ressemble à ce que j'imaginais pour le site.
+*/
+.section-title{
+    display: none;
+}
+
+
+/*
+J'applique le style de base de mes différentes sections :
+- une couleur de fond en attendant que les images chargent.
+- Je fais en sorte que la hauteur des pages prennent tout le champ de vision.
+- Je centre et fixe le fond de chaque section, les images prennent toute la taille
+du navigateur.
+*/
+#homepage, #discover-1, #discover-2, #discover-3{
+    background-color: white;
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/* Je vais écrire mon code css de la manière suivante afin qu'il soit facilement compréhensible. */
+
+/* Je mets donc une image de fond à cette section. */
+#homepage{
+    background-image: url("img/accueil/homepage.jpg");
+}
+
+    /*
+    Je centre bouton de navigation jusqu'à la section discover1 avec "position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);". Je définis la taille
+    et la police d'écriture, j'y mets une autre police d'écriture au cas où l'autre ne charge pas.
+    Je définis la couleur du texte, puis la tailles et la couleur des bordures du bouton.
+    J'y applique un padding. J'applique ensuite une vitesse de transition car il existe un bug
+    si l'on n'applique pas cette vitesse de transition à l'élément parent.
+    Je définis la couche avec "z-index: 1;" pour le pseudo élément qui va suivre.
+    */
+    .discover-btn{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        font-family: 'Cambria', sans-serif;
+        color: white;
+        border: white solid 1px;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 20px 50px;
+        transition: 0.6s height ease;
+        z-index: 1;
+    }
+        /*
+        Je crée un pseudo élément pour avoir un effet lors du survol du bouton.
+        J'applique toujours "content:'';" car sans cela il ne s'affiche pas.
+        Je le positionne en bas à gauche pour avoir l'effet que je souhaite.
+        Je lui donne une largeur de 100% et une hauteur de 0. J'y applique la couleur noire
+        avec une opacité de 0.2.
+        Ici, je donne une vitesse de transition au niveau de la hauteur et je lui
+        done une accélération.
+        Sa couche z-index:-1 permet de le faire passer derrière le texte et pouvoir
+        le lire clairement.
+        */
+        .discover-btn::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: 0.6s height ease;
+            z-index: -1;
+        }
+
+        /* La hauteur du pseudo élément est de 100% lors du survol du bouton. */
+        .discover-btn:hover::before{
+            height: 100%;
+        }
+
+
+
+
+
+/*
+J'établie les propriétés propres à toutes les sections discover.
+Je les définis en display flex pour plus simplement centrer leurs éléments, puis
+les disposer en colonne.
+*/
+#discover-1, #discover-2, #discover-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Je donne les images de fond de chaque section discover. */
+#discover-1{
+    background-image: url("img/accueil/discover1.jpg");
+}
+
+#discover-2{
+    background-image: url("img/accueil/discover2.jpg");
+}
+
+#discover-3{
+    background-image: url("img/accueil/discover3.jpg");
+}
+
+/*
+Je définis le style des divs de classe discover-element :
+- Je la met en display grid et je fais 2 fractions de même taille.
+- Je définis la largeur minimum et maximum de cette classe, puis je définis sa hauteur à 15%
+  de la hauteur du navigateur.
+- J'applique un margin de 0 en haut et en bas, et de 50px à gauche et à droite.
+- Je donne la taille, la couleur et la police d'écriture du texte contenu dans cette div.
+*/
+.discover-element{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 800px;
+    min-width: 500px;
+    height: 15%;
+    margin: 0 50px;
+    font-family: 'simsunregular', sans-serif;
+    font-size: 1.1rem;
+    color: white;
+}
+    /*
+    Je centre les paragraphes verticalement avec display flex pour être sûr
+    qu'ils se trouvent à l'endroit exact où je le souhaite.
+    */
+    .discover-element-left, .discover-element-right{
+        display: flex;
+        align-items: center;
+    }
+        /*
+        J'applique une bordure à gauche, un padding à gauche et j'aligne
+        horizontalement le texte à gauche.
+        */
+        .discover-element-right{
+            border-left: solid 2px white;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        /*
+        J'applique une bordure à droite, un padding à droite et j'aligne
+        horizontalement le texte à droite.
+        */
+        .discover-element-left{
+            border-right: solid 2px white;
+            padding-right: 20px;
+            text-align: right;
+        }
+
+
+/* Ici, on établie les règles pour les boutons de navigation entre les sections. */
+/*
+Je donne une position relative pour pouvoir positionner correctement et simplement
+les pseudo éléments des boutons de navigation.
+J'établie la taille de la flèche, sa couleur, ansi que celle du fond avec une opacité de 0.05.
+Je définis les bordures du bouton et applique un padding particulier car la flèche possède
+une sorte de marge à l'arrière. Je définis aussi la hauteur du bouton.
+Je lui donne une couche z-index:1; pour s'assurer que les pseudo éléments seront derrière.
+*/
+.page-up, .page-down, #return-to-homepage{
+    position: relative;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: solid white 1px;
+    padding: 5px 13px 0 13px;
+    transition: 0.6s height ease;
+    height: 48px;
+    z-index: 1;
+}
+    /* Je donne une marge de 10% au bas du bouton */
+    .page-up{
+        margin-bottom: 10%;
+    }
+
+    /* Je donne une marge de 10% au haut du bouton */
+    .page-down, #return-to-homepage{
+        margin-top: 10%;
+    }
+
+    /*
+    Je crée des pseudo éléments et définis les paramètres généraux de ces derniers.
+    - Content qui sert toujours à donner un contenu et afficher ces pseudos éléments.
+    - Je donne une position absolute aux pseudo éléments pour les positionner où je souhaite
+      et utiliser z-index.
+    - Je positionne les pseudo éléments sur la gauche et je définis leur largeur à 100%
+      et hauteur à 0.
+    - Je donne une couleur et une opacité à ces pseudo éléments.
+    - J'applique une vitesse de transition sur la hauteur et donne une accélération.
+    - Je donne un z-index: -1; pour les afficher derrière la flèche.
+     */
+    .page-up::before, .page-down::before, #return-to-homepage::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: 0.6s height ease;
+        z-index: -1;
+    }
+        /* Je positionne les pseudo éléments en haut du bouton. */
+        .page-up::before, #return-to-homepage::before{
+            top: 0;
+        }
+        /* Je positionne les pseudo éléments en bas du bouton. */
+        .page-down::before{
+            bottom: 0;
+        }
+            /* Au moment du survol des boutons, la hauteur des pseudo éléments passe à 100%. */
+            .page-up:hover::before, .page-down:hover::before, #return-to-homepage:hover::before{
+                height: 100%;
+            }

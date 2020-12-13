@@ -1,0 +1,242 @@
+/*
+Je crée ici les règles qui s'appliqueront à toutes les pages,
+ce sont les styles de base que j'aime appliquer.
+*/
+
+/* J'importe toutes les polices d'écriture placées dans le dossier 'fonts'. */
+@font-face {
+    font-family: 'ma_shan_zhengregular';
+    src: url('fonts/masha_zheng/mashanzheng-regular-webfont.woff2') format('woff2'),
+    url('fonts/masha_zheng/mashanzheng-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'permanent_markerregular';
+    src: url('fonts/permanent_marker/permanentmarker-regular-webfont.woff2') format('woff2'),
+    url('fonts/permanent_marker/permanentmarker-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'simsunregular';
+    src: url('fonts/simsun/simsun-webfont.woff2') format('woff2'),
+    url('fonts/simsun/simsun-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cambria';
+    src: url("fonts/cambria/cambria-webfont.woff2") format('woff2'),
+    url("fonts/cambria/cambria-webfont.woff") format("woff");
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Je fais en sorte que le scroll de la page se fasse de façon moins brusque. */
+html{
+    scroll-behavior: smooth;
+}
+
+/* Je retire le style de base des listes. */
+li{
+    list-style: none;
+}
+
+/* Je retire le style de base des liens. */
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/*
+Ici, je place une image de fond pour toutes les pages, à l'exception de celles que je choisirai
+*/
+body{
+    background-image: url("img/fond1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*
+Je fais en sorte que le header soit en position fixed pour y accéder à n'importe
+quel endroit de la page d'accueil. Je mets en place les dimensions du header, sa couche
+pour les prochains éléments du css, et sa couleur.
+*/
+.header-container{
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+J'ai créé un élément 'header-container' pour pouvoir profiter de position fixed
+mais aussi de position relative.
+*/
+    header{
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+
+/*
+Je positionne le titre contenu dans le header, je lui donne plusieurs
+polices d'écriture dans le cas où l'une ne fonctionnerait pas, je lui donne son style,
+je lui donne sa taille en rem, 1rem = 16px, et je lui donne sa couleur.
+*/
+        .head-title{
+            position: absolute;
+            left: 50px;
+            font-family: 'ma_shan_zhengregular', 'permanent_markerregular', sans-serif;
+            font-weight: lighter;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        /*
+        Je définis les dimensions et l'emplacement du navigateur. Je fais en sorte qu'il y ait
+        de l'espace entre chaque élément du navigateur avec space-between.
+        */
+        .header-nav{
+            width: 35%;
+            position: absolute;
+            right: 15%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /*
+        Je fais en sorte que les pseudo éléments before soient centrés
+        pour avoir l'effet que je souhaite au moment du hover. Je donne la police d'écriture
+        et la taille de police des liens.
+        */
+        .header-nav a{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            font-family: 'Cambria', sans-serif;
+            font-size: 1.2rem;
+        }
+
+            /*
+            Je crée des pseudo éléments ::before sur tous les liens du navigateur pour
+            avoir un effet de surlignage avec une animation lors du survol de ces liens.
+            content: ''; est obligatoire pour afficher le ::before.
+            Je le mets en display block pour être sûr qu'il ait les propriétés que je souhaite lui
+            appliquer.
+            Je lui mets une position absolute pour le positionner exactement où je souhaite.
+            J'avais précédemment disposé cet élément before au centre avec justify "content : center"
+            pour qu'il s'étende de chaque côté; si je le centrais avec "left: 50%" il s'étendait
+            de gauche à droite.
+            Je fais en sorte que sa largeur fasse soit de 0 pour pouvoir l'agrandir au moment
+            du survol. Je définis sa hauteur et sa couleur. Je définis aussi
+            le temps que doit prendre la transition,
+            uniquement sur la largeur et je fais en sorte qu'il y ait une accélération.
+            */
+            .header-nav a::before{
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 0.1rem;
+                background: white;
+                transition: 0.4s width ease;
+            }
+                /* Je fais en sorte que sa largeur fasse 85% au moment du survol. */
+                .header-nav a:hover::before{
+                    width: 85%;
+                }
+
+            /*
+            Ici, je fais en sorte d'avoir une indication de la page dans laquelle on se trouve.
+            Je retire le, paramètre de transitions et je laisse la largeur à 85%.
+            */
+            #active-nav-link a::before{
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                width: 85%;
+                height: 0.1rem;
+                background: white;
+            }
+
+    /*
+    J'utilise les média queries pour modifier la présentation du header en fonction
+    de la taille de l'écran.
+    A partir du moment où un écran fait 850px, le header prend les propriétés suivantes:
+    */
+    @media screen and (max-width: 850px) {
+
+        /*
+        On donne une position absolute au header container car on le redimensionne.
+        Il est maintenant trop grand pour être partout sur la page, il gênerait l'utilisation du site.
+        Sa hauteur fait maintenant 30% de la hauteur de la fenêtre.
+        */
+        .header-container{
+            position: static;
+            height: 30%;
+        }
+
+        /*
+        Je vais disposer les éléments du header en position absolute car c'était
+        plus simple pour obtenir ce que je souhaitais.
+        */
+
+            /*
+            - Le titre est alligné horizontalement avec les indications "left: 50%;" et
+            "transform:translateX(-50%);", puis descendu à 35 pixels du haut du header,
+            et il est plus grand.
+            */
+            .head-title {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 35px;
+                font-size: 3rem;
+            }
+
+            /*
+            - Le navigateur est alligné horizontalement avec les indications "left: 50%;" et
+            "transform:translateX(-50%);", puis remonté à 35 pixels du bas du header.
+            Je le change en display flex pour l'afficher en colonne.
+            Sa taille fait 50% du header.
+            */
+            .header-nav {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 35px;
+                display: flex;
+                flex-direction: column;
+                height: 50%;
+            }
+
+            /*
+            J'augmente la taille de la police d'écriture.
+            */
+                .header-nav a{
+                    font-size: 1.5rem;
+                }
+        }
