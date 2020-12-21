@@ -1,3 +1,7 @@
+/*
+Je fais en sorte de centrer tous les éléments et je mets un displays flex et
+flex direction column pour que les prochains ne se chevauchent pas.
+ */
 .centrer{
     position: relative;
     top: 150px;
@@ -6,16 +10,20 @@
     align-items: center;
 }
 
+/* Ici je stylise le titre de la page sur laquelle on se trouve. */
 .page-title{
-    position: relative;
-    left: 0;
      color: white;
      font-family: 'Cambria', sans-serif;
  }
 
 
+/*
+Je définis ici la couleur de tout le texte qui va suivre. Je donne la largeur du "main".
+Je mets une border top et une border bottom, un padding en haut et en bas.
+Je fais en sorte que le texte soit centré et fasse 1.1rem, je donne aussi la police d'écriture.
+ */
 main{
-    max-width: 1448px;
+    max-width: 1250px;
     width: 80%;
     color: white;
     border-top: solid 1px white;
@@ -25,6 +33,11 @@ main{
     font-size: 1.1rem;
     font-family: 'Cambria', sans-serif;
 }
+
+/*
+Je définis une largeur, un margin et une border-bottom.
+J'ai créé une deuxième classe pour retirer le border-bottom.
+ */
     .menus-section{
         width: 75%;
         margin: 0 auto 20px;
@@ -35,6 +48,12 @@ main{
         width: 75%;
         margin: 25px auto;
     }
+
+        /*
+        Ici je stylise les h3, "section-parts" qui représentent
+        les différentes parties à l'intérieur des sections,
+        je stylise aussi les balises strong, em et la class "prix"
+         */
         h3{
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -60,9 +79,16 @@ main{
         }
 
 
+/*
+Je crée une grid pour faire une galerie d'images avec un grid gap de 50px.
+J'ai par la suite fait en sorte que les images soient dans leurs bonnes dimensions.
+Je fais aussi en sorte que le figcaption soit par dessus l'image avec
+les positions absolute et relative, je le centre.
+Je donne une couleur au texte et fais en sorte que le figcaption prenne
+toute la taille de le figure.
+ */
 .grid-plats{
     display: grid;
-    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
 }
@@ -73,22 +99,40 @@ main{
     figure img{
         position: relative;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
         figcaption{
             position: absolute;
-            bottom: 0;
-            background-color: black;
+            display: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: white;
             text-align: center;
             width: 100%;
-            height: 50px;
+            height: 100%;
         }
 
-        figure:hover figcaption{
-            color: blueviolet;
+        /*
+        Je mets un hover pour que le figcaption ne s'affiche que lorsque l'on
+        passe la souris sur l'image avec display none et display block.
+        Je mets aussi une couleur avec une opacité de 0.5.
+         */
+        figure img:hover figcaption{
+            display: block;
+            background-color: rgba(0, 0, 0, 0.5);
         }
+        /* Ici je centre le texte du figcaption. */
+            figcaption p{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
 
+            /*
+            Je crée un média querie pour que les images s'affichent sur une colonne.
+             */
         @media screen and (max-width: 850px){
             .grid-plats{
                 grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -96,13 +140,24 @@ main{
             }
         }
 
+
+/*
+Je fais une grid pour le footer et je donne une couleur au texte.
+Je donne ensuite une couleur au first-child de la class "infos-footer".
+ */
 footer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     color: white;
 }
+.infos-footer :first-child{
+    color: #addbd5;
+}
 
+/*
+Ici, le média querie sert à afficher en colonne les infos du footer.
+ */
     @media screen and (max-width: 850px){
         footer{
             grid-template-columns: 1fr;

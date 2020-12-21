@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <title>Homttet - Nos plats</title>
+    <!-- Ici on relie la page des menus à la feuille de style générale et celle propre aux menus. -->
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/menus-general.css">
 </head>
 <body>
+    <!-- On replace le header et change de place l'id "active-nav-link" pour mettre
+        en évidence la page sur laquelle nous sommes -->
     <div class="header-container">
         <header>
             <h1 class="head-title"><a href="../index.html">Homttet</a></h1>
@@ -21,40 +24,47 @@
     </div>
 
 
+    <!-- Je garde la div pour centrer les éléments -->
     <div class="centrer">
         <h2 class="page-title">Nos Plats</h2>
+        <!-- Je crée une galerie d'images en donnant une class grid à la balise main pour garder
+         le style de cette balise. -->
         <main class="grid-plats">
+            <!-- Je place les balises figure, je mets les images et les figcaption, je mets le texte
+             dans une balise p pour pouvoir appliquer un style différent à ces éléments. -->
             <figure>
                 <img src="../style/img/menus/plats/plat1.jpg" alt="plat">
                 <figcaption>
-                    Le homard breton rôti, confiture de tomate à la vanille,
-                    avocat, mangue, sucrine, porto réduit
+                    <p>Le homard breton rôti, confiture de tomate à la vanille,
+                        avocat, mangue, sucrine, porto réduit</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/plats/plats2.jpg" alt="plat">
                 <figcaption>
-                    L'épaule d'agneau confite aux épices douces, artichauts poivrades, jus court
+                    <p>L'épaule d'agneau confite aux épices douces, artichauts poivrades, jus court</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/plats/plats3.jpg" alt="plat">
                 <figcaption>
-                    Les noix de St Jacques rôties à la plancha, purée de céleri, courgettes étuvées
+                    <p>Les noix de St Jacques rôties à la plancha, purée de céleri, courgettes étuvées</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/plats/plats4.jpg" alt="plat">
                 <figcaption>
-                    La longe de cochon est garnie de févettes à la française et tomates confites
+                    <p>La longe de cochon est garnie de févettes à la française et tomates confites</p>
                 </figcaption>
             </figure>
         </main>
 
 
+        <!-- Je mets un footer, avec des informmations fictives, sauf pour l'adresse qui est celle
+        du restaurant que j'ai utilisé pour prendre les images et le texte. -->
         <footer>
             <div class="infos-footer">
                 <p>CONTACT INFO</p>

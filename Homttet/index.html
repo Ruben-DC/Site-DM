@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="22007046">
     <title>Homttet - Haute gastronomie</title>
+    <!-- Ici on relie la page d'accueil à la feuille de style générale et celle propre à l'accueil. -->
     <link rel="stylesheet" href="style/general.css">
     <link rel="stylesheet" href="style/accueil.css">
 </head>
 <body>
+<!-- On crée le html du header et de "l'accueil" de la première page. -->
     <section id="homepage">
+        <!-- On met un header container pour pouvoir mettre une position fixed, puis une position relative. -->
         <div class="header-container">
             <header>
                 <h1 class="head-title"><a href="index.html">Homttet</a></h1>
+                <!-- Je crée une class nav et je n'utilise pas la
+                balise nav car j'utilise déjà la balise ul.
+                 Je crée les différents liens de navigation et mets un id pour savoir sur quelle page nous sommes. -->
                 <ul class="header-nav">
                     <li id="active-nav-link"><a href="index.html">Accueil</a></li>
                     <li><a href="menus/menus.html">Menus</a></li>
@@ -20,10 +26,12 @@
                     <li><a href="menus/desserts.html">Desserts</a></li>
                 </ul>
             </header>
+            <!-- Je crée le bouton pour passer à la partie "discover" de la page d'accueil. -->
         </div>
         <a href="#discover-1" class="discover-btn">Discover</a>
     </section>
 
+<!-- Je mets en place les différentes sections, les boutons de navigation entre les différentes sections, et le texte. -->
     <section id="discover-1">
         <a href="#homepage" class="page-up">&uarr;</a>
 

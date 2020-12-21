@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <title>Homttet - Nos desserts</title>
+    <!-- Ici on relie la page des menus à la feuille de style générale et celle propre aux menus. -->
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/menus-general.css">
 </head>
 <body>
+    <!-- On replace le header et change de place l'id "active-nav-link" pour mettre
+        en évidence la page sur laquelle nous sommes -->
     <div class="header-container">
         <header>
             <h1 class="head-title"><a href="../index.html">Homttet</a></h1>
@@ -21,32 +24,39 @@
     </div>
 
 
+    <!-- Je garde la div pour centrer les éléments -->
     <div class="centrer">
         <h2 class="page-title">Nos Desserts</h2>
+        <!-- Je crée une galerie d'images en donnant une class grid à la balise main pour garder
+         le style de cette balise. -->
         <main class="grid-plats">
+            <!-- Je place les balises figure, je mets les images et les figcaption, je mets le texte
+             dans une balise p pour pouvoir appliquer un style différent à ces éléments. -->
             <figure>
-                <img src="../style/img/menus/desserts/dessert1.jpg" alt="plat">
+                <img src="../style/img/menus/desserts/dessert1.jpg" alt="dessert">
                 <figcaption>
-                    Le millefeuille à la graine de vanille, sauce caramel au beurre salé
+                    <p>Le millefeuille à la graine de vanille, sauce caramel au beurre salé</p>
                 </figcaption>
             </figure>
 
             <figure>
-                <img src="../style/img/menus/desserts/dessert2.jpg" alt="plat">
+                <img src="../style/img/menus/desserts/dessert2.jpg" alt="dessert">
                 <figcaption>
-                    La sphère croquante au tiramisu, coulis de chocolat chaud
+                    <p>La sphère croquante au tiramisu, coulis de chocolat chaud</p>
                 </figcaption>
             </figure>
 
             <figure>
-                <img src="../style/img/menus/desserts/dessert3.jpg" alt="plat">
+                <img src="../style/img/menus/desserts/dessert3.jpg" alt="dessert">
                 <figcaption>
-                    La fraise gariguette, mousse onctueuse, tuile croustillante
+                    <p>La fraise gariguette, mousse onctueuse, tuile croustillante</p>
                 </figcaption>
             </figure>
         </main>
 
 
+        <!-- Je mets un footer, avec des informmations fictives, sauf pour l'adresse qui est celle
+        du restaurant que j'ai utilisé pour prendre les images et le texte. -->
         <footer>
             <div class="infos-footer">
                 <p>CONTACT INFO</p>

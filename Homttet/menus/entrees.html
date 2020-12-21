@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
     <title>Homttet - Nos entrées</title>
+    <!-- Ici on relie la page des menus à la feuille de style générale et celle propre aux menus. -->
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/menus-general.css">
 </head>
-    <body>
+<body>
+    <!-- On replace le header et change de place l'id "active-nav-link" pour mettre
+        en évidence la page sur laquelle nous sommes -->
     <div class="header-container">
         <header>
             <h1 class="head-title"><a href="../index.html">Homttet</a></h1>
@@ -21,39 +24,46 @@
     </div>
 
 
+    <!-- Je garde la div pour centrer les éléments -->
     <div class="centrer">
         <h2 class="page-title">Nos Entrées</h2>
+        <!-- Je crée une galerie d'images en donnant une class grid à la balise main pour garder
+         le style de cette balise. -->
         <main class="grid-plats">
+            <!-- Je place les balises figure, je mets les images et les figcaption, je mets le texte
+             dans une balise p pour pouvoir appliquer un style différent à ces éléments. -->
             <figure>
                 <img src="../style/img/menus/entrees/entree1.jpg" alt="entree">
                 <figcaption>
-                    Le macaroni farci foie gras et céleri, gratiné au vieu parmesan
+                    <p>Le macaroni farci foie gras et céleri, gratiné au vieu parmesan</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/entrees/entree2.jpg" alt="entree">
                 <figcaption>
-                    Le saumon mi-fumée par nos soins, sucrine au curry
+                    <p>Le saumon mi-fumée par nos soins, sucrine au curry</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/entrees/entree3.jpg" alt="entree">
                 <figcaption>
-                    Le cannelloni de chair de crabe à la mangue, panna cotta au saumon
+                    <p>Le cannelloni de chair de crabe à la mangue, panna cotta au saumon</p>
                 </figcaption>
             </figure>
 
             <figure>
                 <img src="../style/img/menus/entrees/entree4.jpg" alt="entree">
                 <figcaption>
-                    Le foie gras mi-cuit, concassé de pistache, chutney de fruits
+                    <p>Le foie gras mi-cuit, concassé de pistache, chutney de fruits</p>
                 </figcaption>
             </figure>
         </main>
 
 
+        <!-- Je mets un footer, avec des informmations fictives, sauf pour l'adresse qui est celle
+        du restaurant que j'ai utilisé pour prendre les images et le texte. -->
         <footer>
             <div class="infos-footer">
                 <p>CONTACT INFO</p>
